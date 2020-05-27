@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>autocomplete demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
+
+    <script src="https://kit.fontawesome.com/e2bde7ed59.js" crossorigin="anonymous"></script>
+
+    <style>
+        .makeGreen {
+            color: green;
+        }
+        .makeGray {
+            color: gray;
+        }
+        .check {
+            background: url('images/check.svg') no-repeat;
+        }
+        .neutral {
+            background: url('images/neutral.svg') no-repeat;
+        }
+        .type {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+
+         
+    </style>
+
+</head>
+<body class="bg-light">
+
+    <div class="container-fluid" >
+
+        <div class="row">
+
+            <div class="col-12 col-xl-8 m-auto my-5 p-3">
+                <h1>Is it a Peter Lynch stock?</h1>
+
+
+
+                <div class="form-group">
+
+                    <h5 class="d-inline-block">Search</h5><small> (over 22,500 stocks on the NYSE, Nasdaq and TSE)</small>
+                    <input  id="search" type="text" class="form-control form-control-lg" placeholder="Enter a name or ticker symbol"> 
+
+                    <div id="match-list"></div>
+
+                    <div class="mt-1">
+
+                        <h4 id="coName" class="d-inline-block mt-4 ml-4"></h4>
+                        <h5 id="coTicker" class="d-inline-block text-secondary"></h5>
+                        <p>Type <strong><span id="stockType"></span></strong></p>
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-12 col-md-6 mb-4">
+                                <div class="card p-3 border h-100 coBord">
+                                    <div class="row no-gutters">
+                                        <div class="d-flex align-items-center p-3 col-12">
+                                            <span class="type pb-3 neutral makeGray"></span>
+                                        
+                                            <div class="d-inline-block pl-3">
+                                                <h5 class="card-title">Fast Grower</h5>
+                                                <p class="card-text">Has a P/E ratio between 20 and 60.<br>
+                                                Has a PEG ratio of 1 or less.</p>
+                                                                          
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+
+
+
+                            <div class="col-12 col-md-6 mb-4">
+                                <div class="card p-3 border h-100 coBord">
+                                    <div class="row no-gutters">
+                                        <div class="d-flex align-items-center p-3 col-12">
+                                            <span class="type pb-3 neutral makeGray"></span>
+                                        
+                                            <div class="d-inline-block pl-3">
+                                                <h5 class="card-title">Stalwart</h5>
+                                                <p class="card-text">Has a P/E ratio of 20 or less.<br>
+                                                    Has an earnings growth rate between 4 – 8%.
+                                                </p>                         
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="col-12 col-md-6 mb-4">
+                                <div class="card p-3 border h-100 coBord">
+                                    <div class="row no-gutters">
+                                       
+                                        <div class="d-flex align-items-center p-3 col-12">
+                                            <span class="type pb-3 neutral makeGray"></span>
+                                        
+                                            <div class="d-inline-block pl-3">
+                                                <h5 class="card-title">Slow Grower</h5>
+                                                <p class="card-text">Has a P/E ratio of 15 or less.<br>
+                                                    Has an earnings growth rate between 1 – 4%.<br>
+                                                    Has a dividend yield of 4% or more.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+
+
+                            <div class="col-12 col-md-6 mb-4">
+                                <div class="card p-3 border h-100 coBord">
+                                    <div class="row no-gutters">                        
+                                        <div class="d-flex align-items-center p-3 col-12">
+                                            <span class="type pb-3 neutral makeGray"></span>
+                                            <div class="d-inline-block pl-3">
+                                                <h5 class="card-title">Turnaround</h5>
+                                                <p class="card-text">Is in, near, or coming out of bankruptcy.
+                                                </p>                         
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+
+
+
+                            <div class="col-12 col-md-6 mb-4">
+                                <div class="card p-3 border h-100 coBord">
+                                    <div class="row no-gutters">
+                                        <div class="d-flex align-items-center p-3 col-12">
+                                            <span class="type pb-3 neutral makeGray"></span>
+                                            <div class="d-inline-block pl-3">
+                                                <h5 class="card-title">Asset Play</h5>
+                                                <p class="card-text">Has a large cash position on its balance sheet.
+                                                </p>                         
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+
+
+
+                            <div class="col-12 col-md-6 mb-4">
+                                <div class="card p-3 border h-100 coBord">
+                                    <div class="row no-gutters">
+                                        <div class="d-flex align-items-center p-3 col-12">
+                                            <span class="type pb-3 neutral makeGray"></span>
+                                            <div class="d-inline-block pl-3">
+                                                <h5 class="card-title">Cyclical</h5>
+                                                <p class="card-text">Is in a cyclical industry like consumer products.
+                                                </p>                         
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+
+
+
+
+                            
+
+
+                        </div>
+
+                    </div>
+
+                    <!-- <div id="coSummary" class="mt-5">
+                        <h4 id="coName" class="d-inline-block"></h4>
+                        <h5 id="coTicker" class="d-inline-block text-secondary"></h5>
+                        
+                        <hr>
+                        <p>Type: <strong><span id="stockType"></span></strong></p>
+                        <p>PEG Ratio: <strong><span id="coPeg"></span></strong></p>
+                        <p>Market Cap: <strong><span id="coMCAP"></span></strong></p>
+                        <p>Sector: <strong><span id="coSector"></span></strong></p>
+                        
+
+
+                    </div> -->
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper --><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="js/main-2.js">
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>autocomplete demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script> -->
+
+    <script src="https://kit.fontawesome.com/e2bde7ed59.js" crossorigin="anonymous"></script>
+
+    <style>
+        .makeGreen {
+            color: green;
+        }
+        .makeGray {
+            color: gray;
+        }
+        .check {
+            background: url('images/check.svg') no-repeat;
+        }
+        .neutral {
+            background: url('images/neutral.svg') no-repeat;
+        }
+        .type {
+            width: 2rem;
+            height: 2rem;
+        }
+
+         
+    </style>
+
+</head>
+<body class="bg-light">
+
+    <div class="container-fluid" >
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a href="index.html" class="nav-brand">
+                <h6>The Peter Lynch Investor</h6>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+                    <a class="nav-item nav-link" href="#">About</a>
+                    
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+
+            <div class="col-12 col-md-10 col-lg-8 col-xl-6 m-auto my-5 p-3">
+
+
+                <div class="form-group mx-auto">
+                    <h3 class="mb-5">Is it a Peter Lynch stock?</h3>
+
+                    <h5 class="d-inline-block">Search</h5><small> (over 22,500 stocks on the NYSE, Nasdaq and TSE)</small>
+                    <input  id="search" type="text" class="form-control form-control-lg" placeholder="Enter a name or ticker symbol"> 
+                </div>
+
+                <div id="match-list"></div>
+
+                <div class="mt-5">
+
+                    <h6>Type</h6>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-6 col-md-4 mb-4">
+                            <div class="card p-1 border h-100 coBord">
+                                <div class="row no-gutters">
+                                    <div class="d-flex align-items-center col-12">
+                                        <span class="type pb-2 neutral makeGray"></span>
+                                        <div class="d-inline-block pl-2 mt-2">
+                                            <h6 class="card-title">Fast Grower</h6>
+                                            <!-- <p class="card-text">Has a P/E ratio between 20 and 60.<br>
+                                            Has a PEG ratio of 1 or less.</p> -->
+                                                                      
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+
+
+
+                        <div class="col-6 col-md-4 mb-4">
+                            <div class="card p-1 border h-100 coBord">
+                                <div class="row no-gutters">
+                                    <div class="d-flex align-items-center col-12">
+                                        <span class="type pb-2 neutral makeGray"></span>
+                                        <div class="d-inline-block pl-2 mt-2">
+                                            <h6 class="card-title">Stalwart</h6>
+                                            <!-- <p class="card-text">Has a P/E ratio of 20 or less.<br>
+                                                Has an earnings growth rate between 4 – 8%.
+                                            </p> -->                         
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="col-6 col-md-4 mb-4">
+                            <div class="card p-1 border h-100 coBord">
+                                <div class="row no-gutters">
+                                   
+                                    <div class="d-flex align-items-center col-12">
+                                        <span class="type pb-2 neutral makeGray"></span>
+                                        <div class="d-inline-block pl-2 mt-2">
+                                            <h6 class="card-title">Slow Grower</h6>
+                                            <!-- <p class="card-text">Has a P/E ratio of 15 or less.<br>
+                                                Has an earnings growth rate between 1 – 4%.<br>
+                                                Has a dividend yield of 4% or more.
+                                            </p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+
+
+                        <div class="col-6 col-md-4 mb-4">
+                            <div class="card p-1 border h-100 coBord">
+                                <div class="row no-gutters">                        
+                                    <div class="d-flex align-items-center col-12">
+                                        <span class="type pb-2 neutral makeGray"></span>
+                                        <div class="d-inline-block pl-2 mt-2">
+                                            <h6 class="card-title">Turnaround</h6>
+                                            <!-- <p class="card-text">Is in, near, or coming out of bankruptcy.
+                                            </p>  -->                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+
+
+
+                        <div class="col-6 col-md-4 mb-4">
+                            <div class="card p-1 border h-100 coBord">
+                                <div class="row no-gutters">
+                                    <div class="d-flex align-items-center col-12">
+                                        <span class="type pb-2 neutral makeGray"></span>
+                                        <div class="d-inline-block pl-2 mt-2">
+                                            <h6 class="card-title">Asset Play</h6>
+                                            <!-- <p class="card-text">Has a large cash position on its balance sheet.
+                                            </p>  -->                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+
+
+
+                        <div class="col-6 col-md-4 mb-4">
+                            <div class="card p-1 border h-100 coBord">
+                                <div class="row no-gutters">
+                                    <div class="d-flex align-items-center col-12">
+                                        <span class="type pb-2 neutral makeGray"></span>
+                                        <div class="d-inline-block pl-2 mt-2">
+                                            <h6 class="card-title">Cyclical</h6>
+                                            <!-- <p class="card-text">Is in a cyclical industry like consumer products.
+                                            </p> -->                         
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+
+                            
+
+                    </div><!-- End Row that holds the Six Types -->
+
+                </div>
+
+                <div>
+
+                    <h6 class="mt-5">Summary</h6>
+                    <hr>
+                    <strong><span id="stockType"></span></strong>
+                    <div class="w-100 py-3">
+                        <p class="typeDefintion d-none" id="defFast">Fast Growers are companies that grow at about 20 &ndash; 25% per year. Also, they have PEG ratio's of 1 or less.</p>
+                        <p class="typeDefintion d-none" id="defStalwart">Stalwarts are companies that grow at about 10 &ndash; 12% per year. They have multibillion dollar market caps and may include a dividend.</p>
+                        <p class="typeDefintion d-none" id="defSlow">Slow Growers are companies that grow at about 2 &ndash; 4% per year. Also, they include a dividened.</p>
+                        <p class="typeDefintion d-none" id="defTurnaround">Turnarounds are in, near or just coming out bankruptcy. </p>
+                        <p class="typeDefintion d-none" id="defAsset">Asset Plays are companies that have some kind of asset like cash, real estate or shares in another company.</p>
+                        <p class="typeDefintion d-none" id="defCyclical">Cyclicals are companies that grow and contract routinely.</p>
+                        
+                    </div>
+
+                    <h6 class="mt-5">Detail</h6>
+                    <!-- <hr> -->
+
+                    <!-- <div>
+                        <p>PEG: <span class="sumInfo" id="sumPEG"></span></p>
+                        <p>Growth Rate: <span class="sumInfo" id="sumGrowth"></span></p>
+                        <p>Dividend: <span class="sumInfo" id="sumDividend"></span></p>
+                        <p>Bankruptcy Score (Springate): <span class="sumInfo" id="sumBankruptcy"></span></p>
+                        <p>Cash Position: <span class="sumInfo" id="sumCashPosition"></span></p>
+                        <p>Sector: <span class="sumInfo" id="sumSector"></span></p>
+                    </div> -->
+
+                    <table class="table table-bordered table-striped">
+                        <!-- <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                        </thead> -->
+                        <tbody>
+                            <tr>
+                                <th class="" scope="row">PEG ratio: </th>
+                                <td class="w-50"><span class="sumInfo" id="sumPEG">&nbsp;</span></td>
+                                
+                            </tr>
+                            <tr>
+                                <th class="" scope="row">Growth Rate: </th>
+                                <td class="w-50"><span class="sumInfo" id="sumGrowth">&nbsp;</span></td>
+                                
+                            </tr>
+                            <tr>
+                                <th class="" scope="row">Dividend: </th>
+                                <td class="w-50"><span class="sumInfo" id="sumDividend">&nbsp;</span></td>
+                                
+                            </tr>
+                            <tr>
+                                <th class="" scope="row">Bankruptcy Score (Springate): </th>
+                                <td class="w-50"><span class="sumInfo" id="sumBankruptcy">&nbsp;</span></td>
+                                
+                            </tr>
+                            <tr>
+                                <th class="" scope="row">Cash Position: </th>
+                                <td class="w-50"><span class="sumInfo" id="sumCashPosition">&nbsp;</span></td>
+                                
+                            </tr>
+                            <tr>
+                                <th class="" scope="row">Sector: </th>
+                                <td class="w-50"><span class="sumInfo" id="sumSector">&nbsp;</span></td>
+                               
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper --><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="js/main-2.js">
+
+
+
+    </script>
+
+
+
+</body>
+</html>

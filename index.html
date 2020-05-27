@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Peter Lynch Investor</title>
+
+	<meta charset="utf-8">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+<!-- fulmer h of 0 or greater is less likely bankrupt. 0 or under is bankrupt.
+
+Olson o score of greater than 0.5 is nearing bankruptcy.
+
+Spingate is a company with a score of less than 0.862 are considered bankrupt. 92.5% accurate in testing.
+Companies with a Springate score lower than .862 are classified as "failed". This model was originally by Springate on 40 companies with an accuracy rating of 92.5%. In later tests done by other academic researchers, a 50 Company test (with average assets of 2.5 million) showed a 88% accuracy and a 24 Company Test (with average assets of 63.4 million) showed a 83% accuracy.
+
+The Altman Z-Score helps investors to gauge the probability of a company going bankrupt. Generally, firms with a score above 3.00 have a low probability of bankruptcy, and those with a Z-Score of less than 1.81 have a relatively high probability of bankruptcy. (meant for manufacturing).
+
+
+
+Fast Grower - PEG
+
+Stalwart - 4% - 8% LT Growth Estimates. Over 50B market cap.
+
+Slow Grower - 0% - 3.99% LT Growth Estimates. Plus a dividend.
+
+Asset Play. Cash.
+
+Turnaround - near bankruptcy.
+
+Cyclical - Consumer, Energy, Mining. -->
+
+
+
+
+
+
+
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-6 offset-3">
+
+				<h1>The Peter Lynch Investor</h1>
+
+				<h5>Check for:</h5>
+				<ul>
+					<li>Fast Grower</li>
+					<li>Stalwart</li>
+					<li>Slow Grower</li>
+					<li>Asset Play</li>
+					<li>Turnaround</li>
+					<li>Cyclical</li>
+				</ul>
+
+
+				<div class="bg-light mt-5 p-5">
+					<label>Search</label><small class="text-muted"> (over 22,500 stocks on the NYSE, Nasdaq and TSE)</small>
+					<div class="input-group input-group-lg">
+
+						<input id="search" class="form-control" type="search" name="search" placeholder="Search">
+
+						<div class="input-group-append">
+							<span class="input-group-text" id="basic-addon2" onclick="listString()">Go</span>
+						</div>
+
+					</div>					
+				</div>
+
+				<h5 class="mt-5">Result</h5>
+
+				<hr>
+
+				<p id="result"></p>
+
+			</div>
+
+		</div>
+		
+	</div>
+
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+	<!-- Popper --><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+	<script src="f/myscript.js">
+
+	</script>
+
+
+
+	<script>
+
+		function listString() {
+
+			var searchField = document.getElementById('search').value;
+			var searchText = searchField.toUpperCase();
+			var result = document.getElementById('result');
+
+			for (var i = 0; i < info.company.length; i++) {
+
+				
+				if ( (searchText == info.company[i].Symbol) && ((info.company[i]["PEG Ratio"] <= 1) && (info.company[i]["PEG Ratio"] !== null)) ) {
+
+					result.innerHTML = info.company[i].Name + '<br>' + info.company[i]["PEG Ratio"];
+					return;
+
+				} else {
+
+					result.innerHTML = 'Sorry, ' + searchText + ' does not qualify as a Peter Lynch stock.' + '<br>' + 'Try another search.';
+
+				}
+
+			}
+
+		}
+
+
+	</script>
+
+
+</body>
+</html>
